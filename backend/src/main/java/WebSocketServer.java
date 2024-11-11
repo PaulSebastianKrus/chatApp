@@ -12,10 +12,16 @@ import java.util.Set;
 public class WebSocketServer {
     private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<>());
     private static final long IDLE_TIMEOUT = 600000; // 10 minutes (600,000 ms)
+    private static int userCounter = 1;  // Counter to assign unique user IDs (User 1, User 2, etc.)
 
     // Called when a new client connects
     @OnOpen
     public void onOpen(Session session) {
+
+        String userName = "User " + userCounter++;
+        session.getUserProperties().put("userName", userName);  // Store the user's name in the session
+
+
         sessions.add(session);
         System.out.println("New connection: " + session.getId());
 
@@ -26,15 +32,22 @@ public class WebSocketServer {
     // Called when a message is received from a client
     @OnMessage
     public void onMessage(String message, Session session) {
+        String userName = (String) session.getUserProperties().get("userName");  // Retrieve the user's name
         System.out.println("Received message: " + message);
-        broadcast(message, session);
+
+        // Create a formatted message with the user's name
+        String formattedMessage = userName + ": " + message;
+
+
+        broadcast(formattedMessage, session);
     }
 
     // Called when a client disconnects
     @OnClose
     public void onClose(Session session) {
+        String userName = (String) session.getUserProperties().get("userName");  // Retrieve the user's name
         sessions.remove(session);
-        System.out.println("Connection closed: " + session.getId());
+        System.out.println(userName + " disconnected: " + session.getId());
     }
 
     // Broadcasts a message to all connected clients

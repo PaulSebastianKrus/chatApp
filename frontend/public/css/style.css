@@ -3,13 +3,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #222;  /* Dark background */
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: center;  /* Center content horizontally */
+    align-items: center;  /* Center content vertically */
     height: 100vh;
     flex-direction: column;
     gap: 20px;
+    color: white;  /* White text for contrast */
 }
 
 /* Wrapper for both chat containers */
@@ -19,14 +20,15 @@ body {
     gap: 20px;
     width: 100%;
     max-width: 1200px;
+    /* Center chat containers horizontally and give them a little space between */
 }
 
 /* Chat Container Styles */
 .chatContainer {
     width: 48%; /* Each chat container takes up 48% of the width */
-    background-color: #fff;
+    background-color: #333;  /* Dark background */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Slight shadow */
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -39,11 +41,14 @@ body {
 .messages {
     height: 80%;
     overflow-y: auto;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #444;  /* Darker separator */
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #fafafa;
+    background-color: #222;  /* Darker background for messages */
     border-radius: 4px;
+    display: flex;  /* Use flexbox for the messages container */
+    flex-direction: column;  /* Arrange messages vertically */
+    gap: 10px;  /* Space between the messages */
 }
 
 /* Message input */
@@ -51,10 +56,36 @@ body {
     width: calc(100% - 100px);
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #555;  /* Dark border */
     border-radius: 4px;
     margin-right: 10px;
     outline: none;
+    background-color: #444;  /* Dark input background */
+    color: white;  /* White text for input */
+}
+
+/* Style for current user's message */
+.myMessage {
+    background-color: #007bff;
+    color: white;
+    text-align: right; /* Right-align the current user's messages */
+    padding: 5px 10px;
+    border-radius: 10px;
+    max-width: 80%;  /* Limit the maximum width */
+    word-wrap: break-word;  /* Ensure long words are wrapped */
+    align-self: flex-end; /* Align the current user's message to the right */
+}
+
+/* Style for other user's message */
+.otherMessage {
+    background-color: #444;
+    color: white;
+    text-align: left; /* Left-align the other user's messages */
+    padding: 5px 10px;
+    border-radius: 10px;
+    max-width: 80%;  /* Limit the maximum width */
+    word-wrap: break-word;  /* Ensure long words are wrapped */
+    align-self: flex-start; /* Align the other user's message to the left */
 }
 
 #messageInput1:focus, #messageInput2:focus {
