@@ -10,5 +10,5 @@ A simple real-time chat application using WebSockets, HTML, CSS, and JavaScript.
 ## Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/websocket-chat.git
+   git clone https://github.com/PaulSebastianKrus/websocket-chat.git
    cd websocket-chat
