@@ -12,3 +12,4 @@ A simple real-time chat application using WebSockets, HTML, CSS, and JavaScript.
    ```bash
    git clone https://github.com/PaulSebastianKrus/chatApp.git
    cd chatApp
+![Chat Application Screenshot](images/chat_screenshot.png)
