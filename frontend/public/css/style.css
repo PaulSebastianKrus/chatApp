@@ -39,7 +39,8 @@ body {
 
 /* Chat Messages Area */
 .messages {
-    height: 80%;
+    height: auto;  /* Allow it to grow dynamically based on content */
+    max-height: 80vh;  /* Set the maximum height to 80% of the viewport height */
     overflow-y: auto;
     border-bottom: 1px solid #444;  /* Darker separator */
     padding: 10px;
@@ -51,9 +52,17 @@ body {
     gap: 10px;  /* Space between the messages */
 }
 
+
+/* Wrapper for input and send button */
+.inputWrapper {
+    display: flex;  /* Align input and button horizontally */
+    justify-content: space-between;  /* Space between input and button */
+    width: 100%;
+}
+
 /* Message input */
 #messageInput1, #messageInput2 {
-    width: calc(100% - 100px);
+    width: calc(100% - 90px);  /* Adjust width to leave space for the button */
     padding: 10px;
     font-size: 16px;
     border: 1px solid #555;  /* Dark border */
@@ -62,6 +71,26 @@ body {
     outline: none;
     background-color: #444;  /* Dark input background */
     color: white;  /* White text for input */
+}
+
+/* Send button */
+#sendButton1, #sendButton2 {
+    width: 80px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#sendButton1:hover, #sendButton2:hover {
+    background-color: #0056b3;
+}
+
+#sendButton1:active, #sendButton2:active {
+    background-color: #00408b;
 }
 
 /* Style for current user's message */
@@ -90,26 +119,6 @@ body {
 
 #messageInput1:focus, #messageInput2:focus {
     border-color: #007bff;
-}
-
-/* Send button */
-#sendButton1, #sendButton2 {
-    width: 80px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#sendButton1:hover, #sendButton2:hover {
-    background-color: #0056b3;
-}
-
-#sendButton1:active, #sendButton2:active {
-    background-color: #00408b;
 }
 
 /* Responsive Styles */
