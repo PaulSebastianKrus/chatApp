@@ -39,8 +39,8 @@ body {
 
 /* Chat Messages Area */
 .messages {
-    height: auto;  /* Allow it to grow dynamically based on content */
-    max-height: 80vh;  /* Set the maximum height to 80% of the viewport height */
+    height: calc(100% - 150px); /* Adjust based on your container's height */
+    max-height: 600px; /* Set a maximum height to fit at least 8 messages */
     overflow-y: auto;
     border-bottom: 1px solid #444;  /* Darker separator */
     padding: 10px;
