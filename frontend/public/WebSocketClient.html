@@ -2,39 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebSocket Client</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Link to the CSS file -->
 </head>
 <body>
-<h1>WebSocket Test Client</h1>
-<input type="text" id="messageInput" placeholder="Enter message">
-<button onclick="sendMessage()">Send Message</button>
-<ul id="messages"></ul>
+<h1>WebSocket Chat Application</h1>
+<div id="chatWrapper">
+    <div id="chatContainer1" class="chatContainer">
+        <h2>Chat 1</h2>
+        <div id="messages1" class="messages"></div>
+        <input type="text" id="messageInput1" placeholder="Enter message">
+        <button id="sendButton1">Send Message</button>
+    </div>
 
-<script>
-    // Open WebSocket connection to server
-    const socket = new WebSocket("ws://localhost:8081/ws");
-
-    socket.onopen = function() {
-        console.log("Connected to WebSocket server");
-    };
-
-    socket.onmessage = function(event) {
-        const messageList = document.getElementById("messages");
-        const newMessage = document.createElement("li");
-        newMessage.textContent = event.data;
-        messageList.appendChild(newMessage);
-    };
-
-    socket.onclose = function() {
-        console.log("Disconnected from WebSocket server");
-    };
-
-    function sendMessage() {
-        const input = document.getElementById("messageInput");
-        const message = input.value;
-        socket.send(message);
-        input.value = '';
-    }
-</script>
+    <div id="chatContainer2" class="chatContainer">
+        <h2>Chat 2</h2>
+        <div id="messages2" class="messages"></div>
+        <input type="text" id="messageInput2" placeholder="Enter message">
+        <button id="sendButton2">Send Message</button>
+    </div>
+</div>
+<script src="js/chat.js"></script> <!-- Link to the JavaScript file -->
 </body>
 </html>

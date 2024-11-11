@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Wrapper for both chat containers */
+#chatWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Chat Container Styles */
+.chatContainer {
+    width: 48%; /* Each chat container takes up 48% of the width */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 80%;
+    max-height: 600px;
+}
+
+/* Chat Messages Area */
+.messages {
+    height: 80%;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+    border-radius: 4px;
+}
+
+/* Message input */
+#messageInput1, #messageInput2 {
+    width: calc(100% - 100px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    outline: none;
+}
+
+#messageInput1:focus, #messageInput2:focus {
+    border-color: #007bff;
+}
+
+/* Send button */
+#sendButton1, #sendButton2 {
+    width: 80px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#sendButton1:hover, #sendButton2:hover {
+    background-color: #0056b3;
+}
+
+#sendButton1:active, #sendButton2:active {
+    background-color: #00408b;
+}
+
+/* Responsive Styles */
+@media (max-width: 800px) {
+    #chatWrapper {
+        flex-direction: column;
+    }
+
+    .chatContainer {
+        width: 100%;
+    }
+
+    #messageInput1, #messageInput2 {
+        width: calc(100% - 70px);
+    }
+
+    #sendButton1, #sendButton2 {
+        width: 60px;
+    }
+}

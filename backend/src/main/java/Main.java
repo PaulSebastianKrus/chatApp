@@ -16,7 +16,6 @@ public class Main {
         resourceHandler.setDirectoriesListed(true);  // Allow directory listing if no index file is found
         resourceHandler.setWelcomeFiles(new String[]{"WebSocketClient.html"}); // Set default file to be served
 
-
         // Create a ServletContextHandler to handle WebSocket requests
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
@@ -30,7 +29,14 @@ public class Main {
         // Initialize the WebSocket layer
         ServerContainer wsContainer = WebSocketServerContainerInitializer.configureContext(context);
 
-        // Register WebSocket endpoints
+        // Check if the WebSocket container is initialized
+        if (wsContainer != null) {
+            System.out.println("WebSocket server container initialized.");
+        } else {
+            System.err.println("Failed to initialize WebSocket server container!");
+        }
+
+        // Register WebSocket endpoint
         wsContainer.addEndpoint(WebSocketServer.class);
 
         // Start the server
